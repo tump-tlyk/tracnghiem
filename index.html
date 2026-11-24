@@ -1,0 +1,1281 @@
+<!DOCTYPE html>
+<html lang="vi" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Take-note Y Khoa: Rau Tiền Đạo (Placenta Previa)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for Medical Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    colors: {
+                        medBg: '#f4f7fb',
+                        medCard: '#ffffff',
+                        medPrimary: '#0f4c81',
+                        medAccent: '#0284c7',
+                        medRose: '#be123c',
+                        medMint: '#047857',
+                        medAmber: '#b45309'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom scrollbar & full-width optimization */
+        html, body {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7fb;
+            color: #1e293b;
+            overflow-x: hidden;
+        }
+
+        /* Keyword Highlight Styles */
+        .kw-yellow {
+            background: linear-gradient(120deg, #fef08a 0%, #fde047 100%);
+            color: #713f12;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-weight: 700;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+        .kw-rose {
+            background-color: #ffe4e6;
+            color: #be123c;
+            border: 1px solid #fecdd3;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        .kw-blue {
+            background-color: #e0f2fe;
+            color: #0369a1;
+            border: 1px solid #bae6fd;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+        .kw-mint {
+            background-color: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+            padding: 1px 6px;
+            border-radius: 5px;
+            font-weight: 700;
+        }
+
+        /* Clinical Pearl Callout Box */
+        .clinical-pearl {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            border-left: 5px solid #0284c7;
+            transition: all 0.3s ease;
+        }
+        .clinical-pearl.hidden-pearl {
+            display: none;
+        }
+
+        /* Smooth collapsible content */
+        .section-body {
+            transition: all 0.25s ease-in-out;
+        }
+        .section-collapsed .section-body {
+            display: none;
+        }
+        .section-collapsed .chevron-icon {
+            transform: rotate(-90deg);
+        }
+
+        /* Ultrasound scanline effect */
+        .us-screen {
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, #090d16 85%);
+            position: relative;
+            overflow: hidden;
+        }
+        .us-noise {
+            background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 0);
+            background-size: 4px 4px;
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-sky-200 selection:text-sky-900">
+
+    <!-- Thanh tiến độ đọc cố định trên cùng -->
+    <div class="fixed top-0 left-0 w-full h-1.5 bg-slate-200 z-50">
+        <div id="readingProgress" class="h-full bg-gradient-to-r from-sky-600 via-rose-500 to-amber-500 w-0 transition-all duration-150"></div>
+    </div>
+
+    <!-- TOP CONTROL BAR & HEADER (FULL WIDTH) -->
+    <header class="w-full bg-gradient-to-r from-sky-900 via-sky-800 to-indigo-900 text-white shadow-lg pt-4 pb-6 px-4 sm:px-6 lg:px-8 border-b-4 border-rose-500">
+        <div class="w-full flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+            <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-rose-500/90 text-white text-xs font-bold uppercase tracking-wider shadow-sm">
+                        <i class="fa-solid fa-kit-medical mr-1"></i> Cấp cứu Sản khoa
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-sky-700/80 border border-sky-400/30 text-sky-100 text-xs font-semibold">
+                        Sản Phụ Khoa • Chảy máu 3 tháng cuối
+                    </span>
+                    <span class="px-3 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs font-semibold">
+                        <i class="fa-solid fa-graduation-cap mr-1"></i> Take-note + Lâm sàng mở rộng
+                    </span>
+                </div>
+                <h1 class="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                    RAU TIỀN ĐẠO <span class="text-sky-300 font-semibold text-xl sm:text-3xl">(PLACENTA PREVIA)</span>
+                </h1>
+                <p class="text-sky-100/90 text-sm sm:text-base mt-1">
+                    Hệ thống hóa kiến thức giáo trình Sản khoa, sơ đồ giải phẫu – siêu âm và phác đồ xử trí cấp cứu thực hành.
+                </p>
+            </div>
+
+            <!-- Thanh công cụ học tập tương tác -->
+            <div class="flex flex-wrap items-center gap-2.5 bg-white/10 backdrop-blur-md p-2.5 rounded-xl border border-white/15 shrink-0">
+                <button id="togglePearlsBtn" onclick="toggleAllPearls()" class="px-3.5 py-2 rounded-lg bg-sky-500 hover:bg-sky-400 text-white font-semibold text-xs sm:text-sm transition flex items-center gap-2 shadow cursor-pointer">
+                    <i class="fa-solid fa-lightbulb text-amber-300"></i>
+                    <span id="pearlBtnText">Ẩn mở rộng lâm sàng</span>
+                </button>
+                <button id="toggleCollapseAllBtn" onclick="toggleAllSections()" class="px-3.5 py-2 rounded-lg bg-white text-sky-900 hover:bg-sky-50 font-semibold text-xs sm:text-sm transition flex items-center gap-2 shadow cursor-pointer">
+                    <i class="fa-solid fa-layer-group text-sky-700"></i>
+                    <span id="collapseBtnText">Thu gọn tất cả</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MỤC LỤC Ở TRÊN ĐẦU TRANG (DẠNG LƯỚI ĐIỀU HƯỚNG NHANH) -->
+    <nav aria-label="Mục lục bài học" class="w-full bg-white border-b border-slate-200 shadow-sm px-4 sm:px-6 lg:px-8 py-4">
+        <div class="flex items-center justify-between mb-3">
+            <h2 class="text-sm font-extrabold uppercase tracking-wider text-slate-700 flex items-center gap-2">
+                <i class="fa-solid fa-compass text-sky-600 text-base"></i> Mục lục điều hướng nhanh (11 Phần)
+            </h2>
+            <span class="text-xs text-slate-500 hidden sm:inline">Nhấp vào thẻ bất kỳ để di chuyển nhanh đến nội dung</span>
+        </div>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
+            <a href="#muc-tieu" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs font-bold flex items-center justify-center shrink-0">0</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-sky-800 truncate">Mục tiêu học tập</span>
+            </a>
+            <a href="#phan-1" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs font-bold flex items-center justify-center shrink-0">1</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-sky-800 truncate">Đại cương (1/200)</span>
+            </a>
+            <a href="#phan-2" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-rose-600 text-white text-xs font-bold flex items-center justify-center shrink-0">2</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-rose-800 truncate">Phân loại & Sơ đồ</span>
+            </a>
+            <a href="#phan-3" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-amber-600 text-white text-xs font-bold flex items-center justify-center shrink-0">3</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-amber-800 truncate">Nguyên nhân & YTNC</span>
+            </a>
+            <a href="#phan-4" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-purple-50 border border-slate-200 hover:border-purple-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-purple-600 text-white text-xs font-bold flex items-center justify-center shrink-0">4</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-purple-800 truncate">Đặc điểm giải phẫu</span>
+            </a>
+            <a href="#phan-5" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-rose-50 border border-slate-200 hover:border-rose-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-rose-600 text-white text-xs font-bold flex items-center justify-center shrink-0">5</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-rose-800 truncate">Cơ chế chảy máu</span>
+            </a>
+            <a href="#phan-6" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-sky-50 border border-slate-200 hover:border-sky-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-sky-600 text-white text-xs font-bold flex items-center justify-center shrink-0">6</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-sky-800 truncate">Triệu chứng & Siêu âm</span>
+            </a>
+            <a href="#phan-7" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-amber-50 border border-slate-200 hover:border-amber-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-amber-600 text-white text-xs font-bold flex items-center justify-center shrink-0">7</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-amber-800 truncate">Nguy cơ Mẹ & Con</span>
+            </a>
+            <a href="#phan-8" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-indigo-50 border border-slate-200 hover:border-indigo-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-indigo-600 text-white text-xs font-bold flex items-center justify-center shrink-0">8</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-indigo-800 truncate">Chẩn đoán phân biệt</span>
+            </a>
+            <a href="#phan-9" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-emerald-50 border border-slate-200 hover:border-emerald-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0">9</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-emerald-800 truncate">Phác đồ Xử trí</span>
+            </a>
+            <a href="#phan-10" class="group flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-teal-600 text-white text-xs font-bold flex items-center justify-center shrink-0">10</span>
+                <span class="text-xs font-bold text-slate-700 group-hover:text-teal-800 truncate">Phòng bệnh</span>
+            </a>
+            <a href="#flash-summary" class="group flex items-center gap-2 p-2.5 rounded-xl bg-amber-50 hover:bg-amber-100 border border-amber-300 transition">
+                <span class="w-6 h-6 rounded-lg bg-amber-500 text-white text-xs font-bold flex items-center justify-center shrink-0"><i class="fa-solid fa-bolt"></i></span>
+                <span class="text-xs font-bold text-amber-900 truncate">Chốt ý thi lâm sàng</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT CONTAINER (100% FULL WIDTH, KHÔNG LỀ HAI BÊN) -->
+    <main class="w-full px-3 sm:px-5 lg:px-6 py-6 space-y-6">
+
+        <!-- MỤC TIÊU HỌC TẬP -->
+        <section id="muc-tieu" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-sky-50 to-indigo-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-sky-700 text-white font-bold flex items-center justify-center shadow-sm">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-sky-950">MỤC TIÊU HỌC TẬP</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-200 flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-full bg-sky-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">1</span>
+                        <p class="text-sm sm:text-base font-medium text-slate-800">Trình bày được <span class="kw-blue">cách phân loại</span> rau tiền đạo (theo giải phẫu, lâm sàng và siêu âm).</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-rose-50/70 border border-rose-200 flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-full bg-rose-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">2</span>
+                        <p class="text-sm sm:text-base font-medium text-slate-800">Phân tích được <span class="kw-rose">cơ chế chảy máu</span> trong rau tiền đạo ở 3 tháng cuối và khi chuyển dạ.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 flex items-start gap-3">
+                        <span class="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-sm flex items-center justify-center shrink-0 mt-0.5">3</span>
+                        <p class="text-sm sm:text-base font-medium text-slate-800">Trình bày được <span class="kw-mint">triệu chứng, cách chẩn đoán và xử trí</span> rau tiền đạo theo từng tuyến.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 1. ĐẠI CƯƠNG -->
+        <section id="phan-1" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-slate-50 to-sky-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-sky-700 text-white font-extrabold flex items-center justify-center shadow-sm">1</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">ĐẠI CƯƠNG VỀ RAU TIỀN ĐẠO</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-5">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+                    <!-- Nội dung giáo trình -->
+                    <div class="lg:col-span-7 space-y-3.5 text-sm sm:text-base leading-relaxed">
+                        <div class="p-4 rounded-xl bg-amber-50/80 border border-amber-200">
+                            <span class="text-xs font-extrabold uppercase tracking-wider text-amber-800 block mb-1"><i class="fa-solid fa-book-medical mr-1"></i> Định nghĩa chuẩn giáo trình</span>
+                            <p class="text-slate-800 font-medium">
+                                Gọi là <span class="kw-rose">rau tiền đạo (RTĐ)</span> khi bánh rau không bám hoàn toàn vào đáy hay thân tử cung, mà <span class="kw-yellow">một phần hay toàn bộ bánh rau bám vào đoạn dưới tử cung</span> ở thời điểm <span class="kw-blue">ba tháng cuối của thai kỳ</span>, chắn đường ra của thai nhi khi chuyển dạ đẻ.
+                            </p>
+                        </div>
+                        <ul class="space-y-2.5 text-slate-700">
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-circle-exclamation text-rose-600 mt-1"></i>
+                                <span>Là trường hợp bất thường về vị trí bám của bánh rau, là <span class="kw-rose">yếu tố đẻ khó do phần phụ của thai</span> và gây cản trở sự bình chỉnh của thai (dễ gây ngôi ngang, ngôi ngược, ngôi đầu cao lỏng).</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-droplet text-rose-600 mt-1"></i>
+                                <span>Gây <span class="kw-rose">chảy máu trong 3 tháng cuối</span> của thời kỳ thai nghén, trong chuyển dạ và sau đẻ; có khả năng gây <span class="kw-rose">tử vong cho cả mẹ và con</span> do chảy máu ồ ạt hay do đẻ non. Đây là một <span class="kw-yellow">cấp cứu sản khoa</span>.</span>
+                            </li>
+                            <li class="flex items-start gap-2.5">
+                                <i class="fa-solid fa-chart-pie text-sky-600 mt-1"></i>
+                                <span><strong>Tỷ lệ gặp:</strong> Khoảng <span class="kw-blue">1/200 tổng số đẻ</span> (~0.5%). Nếu phát hiện sớm và xử trí tốt sẽ hạn chế đáng kể tử vong mẹ và con.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Sơ đồ so sánh giải phẫu Hình 1 -->
+                    <div class="lg:col-span-5 bg-slate-50 rounded-2xl border border-slate-200 p-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-500 text-center mb-2">Hình 1: So sánh vị trí bám của bánh rau (Mặt cắt đứng dọc)</div>
+                        <svg viewBox="0 0 460 230" class="w-full h-auto rounded-xl bg-white border border-slate-200 p-2">
+                            <!-- A. Bình thường -->
+                            <g transform="translate(15, 10)">
+                                <text x="95" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#047857">A. Rau bám bình thường</text>
+                                <!-- Thành tử cung -->
+                                <path d="M 55 45 C 55 20, 135 20, 135 45 C 145 95, 130 140, 112 165 L 112 195 L 78 195 L 78 165 C 60 140, 45 95, 55 45 Z" fill="#ffe4e6" stroke="#e11d48" stroke-width="2.5"/>
+                                <!-- Buồng tử cung -->
+                                <path d="M 65 50 C 65 32, 125 32, 125 50 C 132 95, 120 135, 104 160 L 86 160 C 70 135, 58 95, 65 50 Z" fill="#fff1f2"/>
+                                <!-- Bánh rau ở đáy/thân -->
+                                <path d="M 64 52 C 66 32, 124 32, 126 52 C 115 62, 75 62, 64 52 Z" fill="#991b1b"/>
+                                <!-- Thai nhi minh họa đầu quay xuống -->
+                                <circle cx="95" cy="135" r="14" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+                                <ellipse cx="95" cy="100" rx="18" ry="24" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+                                <!-- Dây rốn -->
+                                <path d="M 95 58 Q 80 80, 95 95" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="3,2"/>
+                                <!-- Chú thích -->
+                                <text x="95" y="210" text-anchor="middle" font-size="10" fill="#334155">Đường ra cổ tử cung thông thoáng</text>
+                                <line x1="115" y1="42" x2="155" y2="35" stroke="#475569" stroke-width="1"/>
+                                <text x="157" y="38" font-size="9" font-weight="bold" fill="#991b1b">Bánh rau (Đáy TC)</text>
+                                <line x1="112" y1="180" x2="150" y2="180" stroke="#475569" stroke-width="1"/>
+                                <text x="152" y="183" font-size="9" fill="#334155">Cổ tử cung</text>
+                            </g>
+
+                            <!-- Đường phân cách -->
+                            <line x1="230" y1="15" x2="230" y2="215" stroke="#cbd5e1" stroke-width="1.5" stroke-dasharray="4,4"/>
+
+                            <!-- B. Rau tiền đạo -->
+                            <g transform="translate(235, 10)">
+                                <text x="105" y="15" text-anchor="middle" font-size="12" font-weight="bold" fill="#be123c">B. Rau tiền đạo</text>
+                                <!-- Thành tử cung -->
+                                <path d="M 65 45 C 65 20, 145 20, 145 45 C 155 95, 140 140, 122 165 L 122 195 L 88 195 L 88 165 C 70 140, 55 95, 65 45 Z" fill="#ffe4e6" stroke="#e11d48" stroke-width="2.5"/>
+                                <!-- Buồng tử cung -->
+                                <path d="M 75 50 C 75 32, 135 32, 135 50 C 142 95, 130 135, 114 160 L 96 160 C 80 135, 68 95, 75 50 Z" fill="#fff1f2"/>
+                                <!-- Thai nhi bị đẩy cao / ngôi bất thường -->
+                                <circle cx="118" cy="115" r="14" fill="#fde68a" stroke="#d97706" stroke-width="1.5"/>
+                                <ellipse cx="96" cy="85" rx="22" ry="17" fill="#fef3c7" stroke="#d97706" stroke-width="1.5"/>
+                                <!-- Bánh rau che kín đoạn dưới & lỗ trong CTC -->
+                                <path d="M 76 125 C 82 145, 92 162, 105 162 C 118 162, 128 145, 134 125 C 118 138, 92 138, 76 125 Z" fill="#991b1b"/>
+                                <!-- Dây rốn -->
+                                <path d="M 105 138 Q 115 115, 100 98" fill="none" stroke="#0284c7" stroke-width="2.5" stroke-dasharray="3,2"/>
+                                <!-- Chú thích -->
+                                <text x="105" y="210" text-anchor="middle" font-size="10" font-weight="bold" fill="#be123c">Che lấp đường ra của thai nhi</text>
+                                <line x1="128" y1="145" x2="155" y2="145" stroke="#be123c" stroke-width="1"/>
+                                <text x="157" y="143" font-size="9" font-weight="bold" fill="#be123c">Rau bám</text>
+                                <text x="157" y="153" font-size="9" font-weight="bold" fill="#be123c">đoạn dưới</text>
+                            </g>
+                        </svg>
+                    </div>
+                </div>
+
+                <!-- Mở rộng lâm sàng -->
+                <div class="clinical-pearl rounded-xl p-4 shadow-sm">
+                    <div class="flex items-center gap-2 text-sky-900 font-extrabold text-sm mb-1.5">
+                        <i class="fa-solid fa-stethoscope text-sky-600"></i>
+                        <span>MỞ RỘNG LÂM SÀNG: Hiện tượng "Rau di chuyển" (Placental Migration) & Ý nghĩa mốc 3 tháng cuối</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Tại sao định nghĩa nhấn mạnh thời điểm <strong>3 tháng cuối thai kỳ</strong> (từ tuần 28 trở đi)? Ở quý I và quý II (tuần 16–20), siêu âm có thể thấy bánh rau bám thấp ở tới 5–15% thai phụ. Tuy nhiên, khi tử cung lớn lên, đoạn dưới tử cung kéo dài lên phía trên (giống như kéo căng một điểm mực vẽ gần cổ sợi dây thun), kéo theo bánh rau rời xa lỗ trong cổ tử cung. Trên 90% trường hợp rau bám thấp ở quý II sẽ "trở về bình thường" ở quý III. Do đó, chẩn đoán xác định RTĐ chỉ có giá trị thực sự ở <strong>3 tháng cuối</strong>.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 2. PHÂN LOẠI -->
+        <section id="phan-2" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-rose-50 to-amber-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-rose-600 text-white font-extrabold flex items-center justify-center shadow-sm">2</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">PHÂN LOẠI RAU TIỀN ĐẠO (3 CÁCH PHÂN LOẠI)</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-6">
+                
+                <!-- 2.1 Phân loại theo giải phẫu + Sơ đồ 5 hình thái -->
+                <div>
+                    <h3 class="text-base sm:text-lg font-extrabold text-rose-800 mb-3 flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded-md bg-rose-100 text-rose-800 text-xs">2.1</span> Phân loại theo giải phẫu (5 mức độ từ nhẹ đến nặng)
+                    </h3>
+
+                    <!-- Sơ đồ SVG trực quan 5 loại giải phẫu -->
+                    <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4 mb-4">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-600 text-center mb-3">
+                            Sơ đồ giải phẫu 5 hình thái Rau Tiền Đạo so với Lỗ trong Cổ tử cung (Internal Os)
+                        </div>
+                        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+                            <!-- Loại 1: Bám thấp -->
+                            <div class="bg-white rounded-xl border border-emerald-200 p-3 flex flex-col items-center shadow-xs">
+                                <span class="px-2 py-0.5 rounded-full bg-emerald-100 text-emerald-800 text-[11px] font-bold mb-2">1. RTĐ Bám thấp</span>
+                                <svg viewBox="0 0 140 130" class="w-32 h-28">
+                                    <path d="M 30 10 C 20 50, 35 85, 55 100 L 55 125 M 110 10 C 120 50, 105 85, 85 100 L 85 125" fill="none" stroke="#f43f5e" stroke-width="5" stroke-linecap="round"/>
+                                    <!-- Bánh rau bám chủ yếu thân, lan nhẹ xuống đoạn dưới -->
+                                    <path d="M 32 15 C 26 42, 33 65, 42 78 C 48 65, 44 40, 32 15 Z" fill="#991b1b"/>
+                                    <line x1="55" y1="100" x2="85" y2="100" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,2"/>
+                                    <text x="70" y="116" text-anchor="middle" font-size="9" fill="#0369a1" font-weight="bold">Lỗ trong CTC</text>
+                                </svg>
+                                <p class="text-xs text-slate-600 text-center mt-1">Chủ yếu ở thân, lan ít xuống đoạn dưới. Chẩn đoán hồi cứu: mép rau đến lỗ rách màng rau <span class="kw-mint">&lt; 10 cm</span>.</p>
+                            </div>
+
+                            <!-- Loại 2: Bám bên -->
+                            <div class="bg-white rounded-xl border border-teal-200 p-3 flex flex-col items-center shadow-xs">
+                                <span class="px-2 py-0.5 rounded-full bg-teal-100 text-teal-800 text-[11px] font-bold mb-2">2. RTĐ Bám bên</span>
+                                <svg viewBox="0 0 140 130" class="w-32 h-28">
+                                    <path d="M 30 10 C 20 50, 35 85, 55 100 L 55 125 M 110 10 C 120 50, 105 85, 85 100 L 85 125" fill="none" stroke="#f43f5e" stroke-width="5" stroke-linecap="round"/>
+                                    <!-- Bánh rau bám phần lớn đoạn dưới, chưa tới CTC -->
+                                    <path d="M 31 35 C 28 60, 38 80, 48 90 C 54 78, 46 55, 31 35 Z" fill="#991b1b"/>
+                                    <line x1="55" y1="100" x2="85" y2="100" stroke="#0284c7" stroke-width="2" stroke-dasharray="3,2"/>
+                                    <text x="70" y="116" text-anchor="middle" font-size="9" fill="#0369a1" font-weight="bold">Chưa tới CTC</text>
+                                </svg>
+                                <p class="text-xs text-slate-600 text-center mt-1">Phần lớn bám đoạn dưới nhưng bờ <span class="kw-blue">chưa tới CTC</span>. Hồi cứu sau đẻ đo khoảng cách <span class="kw-mint">&lt; 10 cm</span>.</p>
+                            </div>
+
+                            <!-- Loại 3: Bám mép -->
+                            <div class="bg-white rounded-xl border border-amber-300 p-3 flex flex-col items-center shadow-xs">
+                                <span class="px-2 py-0.5 rounded-full bg-amber-100 text-amber-800 text-[11px] font-bold mb-2">3. RTĐ Bám mép</span>
+                                <svg viewBox="0 0 140 130" class="w-32 h-28">
+                                    <path d="M 30 10 C 20 50, 35 85, 55 100 L 55 125 M 110 10 C 120 50, 105 85, 85 100 L 85 125" fill="none" stroke="#f43f5e" stroke-width="5" stroke-linecap="round"/>
+                                    <!-- Mép rau sát tới mép lỗ trong CTC -->
+                                    <path d="M 33 45 C 32 70, 42 90, 56 100 C 60 86, 50 65, 33 45 Z" fill="#991b1b"/>
+                                    <circle cx="56" cy="100" r="3" fill="#f59e0b"/>
+                                    <text x="70" y="116" text-anchor="middle" font-size="9" fill="#b45309" font-weight="bold">Sát mép lỗ CTC</text>
+                                </svg>
+                                <p class="text-xs text-slate-600 text-center mt-1">Bờ rau <span class="kw-yellow">sát tới lỗ trong CTC</span> nhưng chưa che lấp. Khi CTC mở sờ thấy bờ rau sát mép.</p>
+                            </div>
+
+                            <!-- Loại 4: Bán trung tâm -->
+                            <div class="bg-white rounded-xl border border-orange-300 p-3 flex flex-col items-center shadow-xs">
+                                <span class="px-2 py-0.5 rounded-full bg-orange-100 text-orange-800 text-[11px] font-bold mb-2">4. Bán trung tâm</span>
+                                <svg viewBox="0 0 140 130" class="w-32 h-28">
+                                    <path d="M 30 10 C 20 50, 35 85, 55 100 L 55 125 M 110 10 C 120 50, 105 85, 85 100 L 85 125" fill="none" stroke="#f43f5e" stroke-width="5" stroke-linecap="round"/>
+                                    <!-- Che lấp 1 phần lỗ trong CTC -->
+                                    <path d="M 34 55 C 36 80, 50 100, 72 100 C 74 88, 56 72, 34 55 Z" fill="#991b1b"/>
+                                    <path d="M 72 100 Q 79 94, 85 100" fill="none" stroke="#0284c7" stroke-width="2.5"/>
+                                    <text x="70" y="116" text-anchor="middle" font-size="9" fill="#c2410c" font-weight="bold">Che 1 phần CTC</text>
+                                </svg>
+                                <p class="text-xs text-slate-600 text-center mt-1">Che lấp <span class="kw-rose">một phần</span> lỗ trong CTC. Thăm âm đạo khi mở sờ thấy vừa múi rau vừa màng ối.</p>
+                            </div>
+
+                            <!-- Loại 5: Trung tâm hoàn toàn -->
+                            <div class="bg-rose-50/60 rounded-xl border-2 border-rose-400 p-3 flex flex-col items-center shadow-xs">
+                                <span class="px-2 py-0.5 rounded-full bg-rose-600 text-white text-[11px] font-bold mb-2">5. Trung tâm hoàn toàn</span>
+                                <svg viewBox="0 0 140 130" class="w-32 h-28">
+                                    <path d="M 30 10 C 20 50, 35 85, 55 100 L 55 125 M 110 10 C 120 50, 105 85, 85 100 L 85 125" fill="none" stroke="#f43f5e" stroke-width="5" stroke-linecap="round"/>
+                                    <!-- Che kín hoàn toàn lỗ trong CTC -->
+                                    <path d="M 36 65 C 45 92, 55 102, 70 102 C 85 102, 95 92, 104 65 C 85 82, 55 82, 36 65 Z" fill="#991b1b"/>
+                                    <text x="70" y="116" text-anchor="middle" font-size="9" fill="#be123c" font-weight="bold">Bít kín 100% CTC</text>
+                                </svg>
+                                <p class="text-xs text-slate-700 text-center mt-1">Che kín hoàn toàn đường ra. Chỉ sờ thấy múi rau, <span class="kw-rose">tuyệt đối không đẻ đường dưới</span>.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2.2 Lâm sàng & 2.3 Siêu âm -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <!-- 2.2 Theo lâm sàng -->
+                    <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-3">
+                        <h3 class="text-base font-extrabold text-amber-900 flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-amber-200 text-amber-900 text-xs">2.2</span> Phân loại theo Lâm sàng
+                        </h3>
+                        <div class="space-y-2.5 text-sm">
+                            <div class="p-3 rounded-xl bg-white border border-amber-200">
+                                <div class="font-bold text-emerald-700 mb-1"><i class="fa-solid fa-check-circle mr-1"></i> RTĐ chảy máu ít (Chiếm 75% các loại RTĐ có chảy máu)</div>
+                                <p class="text-slate-700">Gặp trong <span class="kw-mint">bám thấp, bám bên, bám mép</span>. Có khả năng theo dõi <span class="kw-blue">đẻ đường dưới</span> được nếu chảy máu ít và điều kiện thuận lợi.</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white border border-rose-200">
+                                <div class="font-bold text-rose-700 mb-1"><i class="fa-solid fa-triangle-exclamation mr-1"></i> RTĐ chảy máu nhiều (Rất nguy hiểm)</div>
+                                <p class="text-slate-700">Gặp trong <span class="kw-rose">RTĐ bán trung tâm và trung tâm hoàn toàn</span>. <span class="kw-rose">Không có khả năng đẻ đường dưới</span>, đe dọa trực tiếp tính mạng mẹ và con.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2.3 Theo siêu âm -->
+                    <div class="p-4 rounded-2xl bg-sky-50/70 border border-sky-200 space-y-3">
+                        <h3 class="text-base font-extrabold text-sky-900 flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-sky-200 text-sky-900 text-xs">2.3</span> Phân loại theo Siêu âm (Thai đủ tháng, chưa chuyển dạ)
+                        </h3>
+                        <div class="space-y-2 text-sm">
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white border border-emerald-200">
+                                <span class="font-semibold text-slate-800">Khoảng cách mép rau → Lỗ trong CTC <span class="kw-mint">&gt; 20 mm</span></span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-emerald-100 text-emerald-800 shrink-0 ml-2">Có thể đẻ đường dưới</span>
+                            </div>
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white border border-amber-300">
+                                <span class="font-semibold text-slate-800">Khoảng cách mép rau → Lỗ trong CTC <span class="kw-yellow">&lt; 20 mm</span></span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-amber-100 text-amber-800 shrink-0 ml-2">Khó đẻ dưới → Thường Mổ</span>
+                            </div>
+                            <div class="flex items-center justify-between p-2.5 rounded-xl bg-white border border-rose-300">
+                                <span class="font-semibold text-slate-800">Mép rau <span class="kw-rose">lan tới hoặc lan qua</span> lỗ trong CTC</span>
+                                <span class="text-xs font-bold px-2.5 py-1 rounded-lg bg-rose-100 text-rose-800 shrink-0 ml-2">Mổ lấy thai chủ động</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 3. NGUYÊN NHÂN & YẾU TỐ THUẬN LỢI -->
+        <section id="phan-3" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-amber-50 to-orange-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-amber-600 text-white font-extrabold flex items-center justify-center shadow-sm">3</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">NGUYÊN NHÂN & CÁC YẾU TỐ THUẬN LỢI</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-4">
+                <p class="text-sm sm:text-base text-slate-700">
+                    Nguyên nhân chính xác chưa được hiểu đầy đủ, tuy nhiên bệnh liên quan mật thiết đến các yếu tố gây <span class="kw-yellow">tổn thương hoặc sẹo niêm mạc – cơ tử cung</span> ở vùng đáy/thân:
+                </p>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+                    <div class="p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-center gap-3">
+                        <i class="fa-solid fa-rotate-left text-rose-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Tiền sử rau tiền đạo trước đó</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-rose-50 border border-rose-200 flex items-center gap-3">
+                        <i class="fa-solid fa-scalpel text-rose-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Tiền sử đã mổ lấy thai (Sẹo mổ cũ)</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3">
+                        <i class="fa-solid fa-hospital-user text-amber-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Mổ tử cung: bóc u xơ, chửa góc, tạo hình TC</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-amber-50 border border-amber-200 flex items-center gap-3">
+                        <i class="fa-solid fa-file-medical text-amber-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Tiền sử nạo hút thai nhiều lần</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200 flex items-center gap-3">
+                        <i class="fa-solid fa-hand-holding-medical text-sky-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Đẻ có kiểm soát TC hay bóc rau nhân tạo</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-sky-50 border border-sky-200 flex items-center gap-3">
+                        <i class="fa-solid fa-children text-sky-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Tiền sử đẻ nhiều lần (Con rạ)</span>
+                    </div>
+                    <div class="p-3.5 rounded-xl bg-purple-50 border border-purple-200 flex items-center gap-3 sm:col-span-2">
+                        <i class="fa-solid fa-person-pregnant text-purple-600 text-lg"></i>
+                        <span class="text-sm font-bold text-slate-800">Tuổi mẹ cao: Nguy cơ RTĐ tăng tỷ lệ thuận theo tuổi người mẹ</span>
+                    </div>
+                </div>
+
+                <!-- Mở rộng lâm sàng -->
+                <div class="clinical-pearl rounded-xl p-4">
+                    <div class="flex items-center gap-2 text-sky-900 font-extrabold text-sm mb-1">
+                        <i class="fa-solid fa-microscope text-sky-600"></i>
+                        <span>MỞ RỘNG LÂM SÀNG: Cơ chế sinh bệnh học "Đi tìm vùng đất màu mỡ"</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Khi nội mạc tử cung ở vùng đáy và thân bị xơ hóa, nghèo mạch máu do sẹo mổ đẻ cũ, nạo hút thai hoặc sinh đẻ nhiều lần, phôi nang làm tổ tại đây sẽ không đủ dinh dưỡng. Vì vậy, trứng thụ tinh có xu hướng di chuyển xuống thấp hơn để tìm vùng niêm mạc chưa bị tổn thương ở đoạn dưới, hoặc bánh rau phải <strong>trải rộng diện tích bám</strong> để bù đắp nguồn cung cấp máu, dẫn đến mép bánh rau lan xuống che lấp cổ tử cung.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. ĐẶC ĐIỂM GIẢI PHẪU CỦA RAU TIỀN ĐẠO -->
+        <section id="phan-4" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-purple-50 to-pink-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-purple-700 text-white font-extrabold flex items-center justify-center shadow-sm">4</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">ĐẶC ĐIỂM GIẢI PHẪU BỆNH CỦA RAU TIỀN ĐẠO (4 THÀNH PHẦN)</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-6">
+                
+                <!-- 4 thẻ đặc điểm giải phẫu -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <!-- 4.1 Bánh rau -->
+                    <div class="p-4 rounded-2xl bg-rose-50/60 border border-rose-200 space-y-2">
+                        <h3 class="font-extrabold text-rose-900 text-base flex items-center gap-2">
+                            <span class="px-2 py-0.5 rounded bg-rose-200 text-rose-900 text-xs">4.1</span> Bánh rau (Placenta)
+                        </h3>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Hình thể <span class="kw-yellow">không tròn đều</span>, diện bám rất rộng, chiều dày mỏng (<span class="kw-rose">thường &lt; 2 cm</span>). Do đoạn dưới nghèo dinh dưỡng nên gai rau có xu hướng ăn sâu vào thành tử cung gây biến chứng <span class="kw-rose">Rau cài răng lược (PAS)</span>:
+                        </p>
+                        <ul class="text-sm space-y-1.5 pl-1">
+                            <li><span class="kw-yellow">Rau bám chặt (Placenta Accreta):</span> Gai rau bám chặt vào lớp niêm mạc/bề mặt cơ tử cung.</li>
+                            <li><span class="kw-rose">Rau cài răng lược (Placenta Increta):</span> Gai rau ăn sâu vào trong lớp cơ tử cung.</li>
+                            <li><span class="kw-rose">Rau đâm xuyên (Placenta Percreta):</span> Gai rau xuyên hết lớp cơ, tới thanh mạc và xâm lấn cơ quan lân cận (<span class="kw-yellow">bàng quang, trực tràng</span>).</li>
+                        </ul>
+                    </div>
+
+                    <!-- 4.2 Màng rau & 4.3 Dây rau -->
+                    <div class="space-y-4">
+                        <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200">
+                            <h3 class="font-extrabold text-amber-900 text-base flex items-center gap-2 mb-1.5">
+                                <span class="px-2 py-0.5 rounded bg-amber-200 text-amber-900 text-xs">4.2</span> Màng rau
+                            </h3>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Màng rau xung quanh bánh rau thường <span class="kw-yellow">dày, độ chun giãn kém</span>. Khi eo tử cung giãn thành đoạn dưới gây co kéo vào bánh rau, bánh rau không giãn dài kịp nên bị <span class="kw-rose">bong rau và chảy máu</span> (đặc biệt dữ dội khi chuyển dạ).
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-2xl bg-sky-50/60 border border-sky-200">
+                            <h3 class="font-extrabold text-sky-900 text-base flex items-center gap-2 mb-1.5">
+                                <span class="px-2 py-0.5 rounded bg-sky-200 text-sky-900 text-xs">4.3</span> Dây rau (Dây rốn)
+                            </h3>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Thường <span class="kw-blue">không cắm ở giữa</span> mà <span class="kw-yellow">cắm ở rìa bánh rau</span>. Nếu dây rau cắm ở rìa phía cổ tử cung (RTĐ bám thấp, bên, mép) thì khi ối vỡ tự nhiên hay bấm ối rất dễ bị <span class="kw-rose">sa dây rau</span> (tối cấp cứu sản khoa).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4.4 Đoạn dưới tử cung -->
+                <div class="p-4 rounded-2xl bg-purple-50/70 border border-purple-200">
+                    <h3 class="font-extrabold text-purple-900 text-base flex items-center gap-2 mb-2">
+                        <span class="px-2 py-0.5 rounded bg-purple-200 text-purple-900 text-xs">4.4</span> Đoạn dưới tử cung (Lower Uterine Segment)
+                    </h3>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Đoạn dưới tử cung chỉ được cấu tạo bởi <span class="kw-yellow">hai lớp cơ: cơ vòng và cơ dọc</span>, hoàn toàn <span class="kw-rose">KHÔNG có lớp cơ đan chéo</span> như thân tử cung. Do đó: (1) Dinh dưỡng kém khiến gai rau đâm sâu gây rau cài răng lược; (2) Sau khi sổ rau, đoạn dưới co hồi kém nên <span class="kw-rose">rất dễ băng huyết sau đẻ</span>, cầm máu nội khoa khó khăn, nhiều khi phải khâu cầm máu vùng rau bám hoặc cắt tử cung bán phần.
+                    </p>
+                </div>
+
+                <!-- Sơ đồ giải phẫu mức độ xâm lấn gai rau + Hình MRI/Giải phẫu minh họa -->
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 bg-slate-50 p-4 rounded-2xl border border-slate-200">
+                    <div class="lg:col-span-7 bg-white rounded-xl border border-slate-200 p-3">
+                        <div class="text-xs font-bold uppercase tracking-wider text-slate-600 text-center mb-2">
+                            Sơ đồ Giải phẫu Bệnh: Phân độ xâm lấn Gai rau (Placenta Accreta Spectrum)
+                        </div>
+                        <svg viewBox="0 0 520 190" class="w-full h-auto">
+                            <!-- Các lớp thành tử cung nền -->
+                            <!-- Lớp Thanh mạc (Serosa) -->
+                            <rect x="20" y="135" width="480" height="12" fill="#f59e0b" opacity="0.8"/>
+                            <text x="25" y="144" font-size="9" font-weight="bold" fill="#fff">Thanh mạc</text>
+                            <!-- Lớp Cơ tử cung (Myometrium) -->
+                            <rect x="20" y="95" width="480" height="40" fill="#fda4af"/>
+                            <text x="25" y="118" font-size="10" font-weight="bold" fill="#881337">Lớp cơ tử cung</text>
+                            <!-- Lớp Niêm mạc / Ngoại sản mạc (Decidua) -->
+                            <rect x="20" y="80" width="480" height="15" fill="#fecdd3"/>
+                            <text x="25" y="91" font-size="9" font-weight="bold" fill="#9f1239">Niêm mạc</text>
+                            <!-- Bàng quang lân cận bên phải -->
+                            <ellipse cx="445" cy="168" rx="45" ry="16" fill="#fef08a" stroke="#ca8a04" stroke-width="1.5"/>
+                            <text x="445" y="171" text-anchor="middle" font-size="9" font-weight="bold" fill="#854d0e">Bàng quang</text>
+
+                            <!-- 1. Bình thường -->
+                            <g transform="translate(85, 0)">
+                                <rect x="0" y="35" width="85" height="45" rx="8" fill="#991b1b"/>
+                                <path d="M 10 80 L 15 88 L 20 80 M 35 80 L 40 88 L 45 80 M 60 80 L 65 88 L 70 80" stroke="#991b1b" stroke-width="3" fill="none"/>
+                                <text x="42" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#047857">Bình thường</text>
+                                <text x="42" y="30" text-anchor="middle" font-size="8" fill="#475569">(Có lớp Nitabuch)</text>
+                            </g>
+
+                            <!-- 2. Accreta -->
+                            <g transform="translate(190, 0)">
+                                <rect x="0" y="35" width="85" height="45" rx="8" fill="#991b1b"/>
+                                <path d="M 10 80 L 15 96 L 20 80 M 35 80 L 40 96 L 45 80 M 60 80 L 65 96 L 70 80" stroke="#991b1b" stroke-width="3.5" fill="none"/>
+                                <text x="42" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#b45309">1. Accreta</text>
+                                <text x="42" y="30" text-anchor="middle" font-size="8" fill="#475569">(Bám chặt bề mặt cơ)</text>
+                            </g>
+
+                            <!-- 3. Increta -->
+                            <g transform="translate(295, 0)">
+                                <rect x="0" y="35" width="85" height="45" rx="8" fill="#991b1b"/>
+                                <path d="M 10 80 L 15 122 L 20 80 M 35 80 L 40 124 L 45 80 M 60 80 L 65 120 L 70 80" stroke="#991b1b" stroke-width="4" fill="none"/>
+                                <text x="42" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#be123c">2. Increta</text>
+                                <text x="42" y="30" text-anchor="middle" font-size="8" fill="#475569">(Ăn sâu lớp cơ TC)</text>
+                            </g>
+
+                            <!-- 4. Percreta -->
+                            <g transform="translate(400, 0)">
+                                <rect x="0" y="35" width="85" height="45" rx="8" fill="#991b1b"/>
+                                <path d="M 10 80 L 15 148 L 20 80 M 35 80 L 42 158 L 50 80 M 60 80 L 68 152 L 75 80" stroke="#991b1b" stroke-width="4.5" fill="none"/>
+                                <text x="42" y="20" text-anchor="middle" font-size="10" font-weight="bold" fill="#881337">3. Percreta</text>
+                                <text x="42" y="30" text-anchor="middle" font-size="8" fill="#be123c" font-weight="bold">(Xuyên bàng quang)</text>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <!-- Hình ảnh mô phỏng MRI / Chẩn đoán hình ảnh Rau cài răng lược -->
+                    <div class="lg:col-span-5 bg-slate-900 text-white rounded-xl border border-slate-700 p-3 flex flex-col justify-between">
+                        <div class="flex items-center justify-between text-[11px] font-mono text-sky-400 border-b border-slate-700 pb-1.5 mb-2">
+                            <span><i class="fa-solid fa-x-ray mr-1"></i> MRI T2-WEIGHTED SAGITTAL</span>
+                            <span>PLACENTA PERCRETA</span>
+                        </div>
+                        <svg viewBox="0 0 300 150" class="w-full h-auto bg-black rounded-lg border border-slate-800">
+                            <!-- Nền mô mềm MRI xám -->
+                            <ellipse cx="150" cy="70" rx="110" ry="58" fill="#1f2937" stroke="#4b5563" stroke-width="2"/>
+                            <!-- Thai nhi bên trong -->
+                            <circle cx="170" cy="55" r="22" fill="#374151" stroke="#9ca3af" stroke-width="1.5"/>
+                            <ellipse cx="125" cy="52" rx="30" ry="20" fill="#374151" stroke="#9ca3af" stroke-width="1.5"/>
+                            <!-- Bánh rau mặt trước đoạn dưới tăng sinh mạch máu (tín hiệu tối không đồng nhất) -->
+                            <path d="M 75 85 C 95 112, 165 118, 210 95 C 180 85, 110 82, 75 85 Z" fill="#6b7280" stroke="#f87171" stroke-width="1.5" stroke-dasharray="3,2"/>
+                            <!-- Dải tín hiệu đen (Flow voids - mạch máu tăng sinh) -->
+                            <path d="M 105 95 Q 130 105, 155 96 M 120 102 Q 145 112, 175 100" stroke="#000" stroke-width="3" fill="none"/>
+                            <!-- Bàng quang bị đè đẩy/xâm lấn phía trước dưới -->
+                            <path d="M 145 115 C 165 112, 195 118, 200 132 C 180 140, 150 135, 145 115 Z" fill="#e5e7eb"/>
+                            <!-- Mũi tên chỉ điểm xâm lấn -->
+                            <line x1="225" y1="125" x2="185" y2="112" stroke="#facc15" stroke-width="1.5"/>
+                            <text x="228" y="122" font-size="8" fill="#facc15" font-weight="bold">Mất ranh giới</text>
+                            <text x="228" y="132" font-size="8" fill="#facc15">Rau - Bàng quang</text>
+                            <text x="15" y="20" font-size="8" fill="#9ca3af" font-family="monospace">1.5T PELVIS MRI</text>
+                            <text x="15" y="142" font-size="8" fill="#38bdf8" font-family="monospace">Tăng sinh mạch máu đoạn dưới</text>
+                        </svg>
+                        <p class="text-[11px] text-slate-300 mt-2 leading-snug">
+                            <strong>Minh họa MRI:</strong> Bánh rau bám mặt trước đoạn dưới mất ranh giới cơ tử cung, xuất hiện các dải mạch máu tăng sinh (flow voids) xâm lấn thành sau bàng quang.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Mở rộng lâm sàng -->
+                <div class="clinical-pearl rounded-xl p-4">
+                    <div class="flex items-center gap-2 text-sky-900 font-extrabold text-sm mb-1">
+                        <i class="fa-solid fa-heart-pulse text-sky-600"></i>
+                        <span>MỞ RỘNG LÂM SÀNG: Tại sao thiếu lớp cơ đan chéo lại gây băng huyết "không cầm được"?</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Ở thân tử cung bình thường, lớp cơ giữa gồm các bó cơ đan chéo nhau theo hình số 8 bao quanh các mạch máu. Sau khi sổ rau, các bó cơ này co rút chặt lại tạo thành các <strong>"nút thắt sinh lý Pinard"</strong> bóp nghẹt các mạch máu hở để cầm máu tức thì. Ngược lại, <strong>đoạn dưới tử cung chỉ có cơ vòng và cơ dọc</strong> (không có cơ đan chéo), nên sau khi bóc rau các xoang tĩnh mạch mở toang không thể tự thắt lại, gây chảy máu ồ ạt dù đã dùng thuốc tăng co tử cung (Oxytocin, Ergometrin).
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 5. CƠ CHẾ CHẢY MÁU TRONG RAU TIỀN ĐẠO -->
+        <section id="phan-5" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-rose-50 to-red-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-rose-700 text-white font-extrabold flex items-center justify-center shadow-sm">5</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">CƠ CHẾ CHẢY MÁU TRONG RAU TIỀN ĐẠO</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-4">
+                <div class="p-3.5 rounded-xl bg-rose-100/70 border border-rose-300 text-sm sm:text-base text-rose-950 font-medium">
+                    <i class="fa-solid fa-droplet text-rose-600 mr-1.5"></i>
+                    <strong>Nguồn gốc máu chảy:</strong> Chủ yếu là <span class="kw-rose">máu mẹ</span> (từ các tĩnh mạch lớp niêm mạc và cơ đoạn dưới tử cung). Đôi khi có <span class="kw-yellow">máu từ con ra</span> do rách gai rau (khi bong rau hoặc xé rộng màng ối không đúng kỹ thuật) → Giải thích tại sao có trường hợp máu chảy ít nhưng <span class="kw-rose">thai suy / thiếu máu nặng</span>.
+                </div>
+
+                <!-- 3 Cơ chế chính -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-rose-600 text-white font-bold text-sm flex items-center justify-center">1</span>
+                            <h3 class="font-extrabold text-slate-900 text-sm sm:text-base">Sự hình thành đoạn dưới (Nguyên nhân chính)</h3>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Trong 3 tháng cuối, đoạn dưới tử cung giãn dài rõ rệt trong khi bánh rau không phát triển kịp → gây <span class="kw-rose">bong rau và chảy máu</span>.
+                        </p>
+                        <ul class="text-xs sm:text-sm text-slate-600 space-y-1 bg-white p-2.5 rounded-xl border border-slate-200">
+                            <li>• <strong>Con so vs Con rạ:</strong> Con so đoạn dưới thành lập sớm hơn → <span class="kw-yellow">chảy máu sớm hơn</span>.</li>
+                            <li>• <strong>Thành trước vs Thành sau:</strong> Thành trước nở to hơn → <span class="kw-rose">chảy máu nhiều & nguy hiểm hơn</span>. Thành sau bị hạn chế bởi dây chằng tử cung - cùng nên ít chảy máu hơn.</li>
+                        </ul>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-amber-600 text-white font-bold text-sm flex items-center justify-center">2</span>
+                            <h3 class="font-extrabold text-slate-900 text-sm sm:text-base">Sự co kéo của các màng thai</h3>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Cơn co tử cung làm tăng áp lực buồng ối, màng ối căng và <span class="kw-yellow">lôi kéo bánh rau</span> gây bong rau thêm.
+                        </p>
+                        <div class="text-xs sm:text-sm text-slate-700 bg-emerald-50 p-2.5 rounded-xl border border-emerald-200">
+                            <strong>Cơ chế cầm máu khi bấm ối:</strong> Khi ối vỡ tự nhiên hoặc <span class="kw-mint">bấm ối</span>, lực co kéo chấm dứt, đồng thời ngôi thai hạ xuống tỳ đè ép vào bánh rau giúp cầm máu. <br>
+                            <span class="text-rose-700 font-bold">Lưu ý:</span> Không thể bấm ối trong RTĐ trung tâm hoàn toàn vì không có đầu ối!
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-2xl bg-slate-50 border border-slate-200 space-y-2">
+                        <div class="flex items-center gap-2">
+                            <span class="w-7 h-7 rounded-lg bg-purple-600 text-white font-bold text-sm flex items-center justify-center">3</span>
+                            <h3 class="font-extrabold text-slate-900 text-sm sm:text-base">Tổn thương đoạn dưới khi đẻ thai</h3>
+                        </div>
+                        <p class="text-sm text-slate-700 leading-relaxed">
+                            Cơ đoạn dưới mỏng, rạn nứt sẵn do gai rau bám sâu. Khi thai đi qua, động lực cơn co kéo theo các múi rau bong sẵn làm <span class="kw-rose">chảy máu ồ ạt</span>.
+                        </p>
+                        <div class="text-xs sm:text-sm text-slate-700 bg-amber-50 p-2.5 rounded-xl border border-amber-200">
+                            Khi làm thủ thuật (nội xoay, lấy đầu hậu) phải chờ <span class="kw-yellow">CTC mở hết</span>, thao tác nhẹ nhàng tránh rách đoạn dưới. Sau sổ rau phải kiểm tra sự toàn vẹn đoạn dưới.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 6. TRIỆU CHỨNG LÂM SÀNG & CẬN LÂM SÀNG -->
+        <section id="phan-6" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-sky-50 to-cyan-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-sky-700 text-white font-extrabold flex items-center justify-center shadow-sm">6</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">TRIỆU CHỨNG LÂM SÀNG & CẬN LÂM SÀNG (SIÊU ÂM)</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-6">
+                
+                <!-- 6.1 So sánh Lâm sàng Khi có thai vs Khi chuyển dạ -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <!-- Khi có thai -->
+                    <div class="rounded-2xl border border-sky-200 bg-sky-50/40 p-4 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-extrabold text-sky-900 text-base sm:text-lg"><i class="fa-solid fa-person-pregnant mr-1.5"></i> 6.1.1. Khi có thai (3 tháng cuối)</h3>
+                            <span class="px-2.5 py-0.5 rounded-full bg-sky-200 text-sky-900 text-xs font-bold">Chưa chuyển dạ</span>
+                        </div>
+                        <div class="space-y-2.5 text-sm text-slate-700">
+                            <div class="p-3 rounded-xl bg-white border border-rose-200">
+                                <div class="font-extrabold text-rose-700 mb-1">Triệu chứng cơ năng (Kinh điển):</div>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Chảy máu <span class="kw-rose">đột ngột, tự nhiên, bất ngờ, KHÔNG đau bụng</span>.</li>
+                                    <li><span class="kw-rose">Máu đỏ tươi</span> có thể lẫn máu cục, sau đó ít dần và màu thẫm lại.</li>
+                                    <li>Tự cầm dù có điều trị hay không.</li>
+                                    <li><strong>Tính chất tái phát:</strong> <span class="kw-yellow">Lần sau nhiều hơn lần trước</span>, khoảng cách giữa các lần <span class="kw-yellow">ngắn lại</span>, thời gian chảy kéo dài hơn.</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white border border-slate-200 space-y-1">
+                                <p><strong>Toàn thân:</strong> Thiếu máu, mệt mỏi, mạch/huyết áp thay đổi tùy lượng máu mất.</p>
+                                <p><strong>Thực thể:</strong> Tử cung hình trứng hoặc bè ngang; sờ nắn hay gặp <span class="kw-blue">ngôi bất thường</span> (ngôi ngang, ngược, đầu cao lỏng). Tim thai bình thường nếu mất máu ít, suy thai nếu mất máu nhiều.</p>
+                                <p><strong>Đặt mỏ vịt / van âm đạo:</strong> Chẩn đoán phân biệt tổn thương thực thể ở CTC, âm đạo.</p>
+                                <p><strong>Thăm âm đạo qua cùng đồ bên:</strong> Cảm giác một <span class="kw-yellow">lớp đệm dày</span> (bánh rau) giữa ngôi thai và ngón tay.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Khi chuyển dạ -->
+                    <div class="rounded-2xl border border-rose-200 bg-rose-50/40 p-4 space-y-3">
+                        <div class="flex items-center justify-between">
+                            <h3 class="font-extrabold text-rose-900 text-base sm:text-lg"><i class="fa-solid fa-heart-circle-exclamation mr-1.5"></i> 6.1.2. Khi chuyển dạ</h3>
+                            <span class="px-2.5 py-0.5 rounded-full bg-rose-600 text-white text-xs font-bold">Cấp cứu tối khẩn</span>
+                        </div>
+                        <div class="space-y-2.5 text-sm text-slate-700">
+                            <div class="p-3 rounded-xl bg-white border border-rose-200">
+                                <div class="font-extrabold text-rose-700 mb-1">Triệu chứng cơ năng & Toàn trạng:</div>
+                                <ul class="list-disc pl-4 space-y-1">
+                                    <li>Ra máu <span class="kw-rose">ồ ạt, máu tươi lẫn máu cục</span> ngày một nhiều.</li>
+                                    <li>Kèm theo <span class="kw-yellow">đau bụng tăng dần</span> (do cơn co tử cung chuyển dạ).</li>
+                                    <li>Sản phụ hốt hoảng, xanh xao, có thể thờ ơ, choáng, bất tỉnh nếu mất máu nặng.</li>
+                                </ul>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white border border-slate-200 space-y-1.5">
+                                <p><strong>Khám mỏ vịt / van âm đạo:</strong> Nhìn thấy màng ối và múi rau. Đây là phương pháp <span class="kw-mint">nhẹ nhàng, chính xác, không gây chảy máu</span>, rất an toàn.</p>
+                                <p><strong>Thăm trong qua lỗ CTC mở:</strong> Sờ thấy màng ối dày/mép rau (bám mép); vừa múi rau vừa màng ối (bán trung tâm); chỉ sờ thấy múi rau (trung tâm hoàn toàn).</p>
+                            </div>
+                            <div class="p-2.5 rounded-xl bg-rose-600 text-white text-xs font-bold flex items-center gap-2">
+                                <i class="fa-solid fa-ban text-lg shrink-0"></i>
+                                <span>CẢNH BÁO ĐỎ: Thăm âm đạo bằng tay qua lỗ CTC đã mở rất dễ làm bong rau thêm và gây chảy máu ồ ạt chết người!</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6.2 Cận lâm sàng & Hình ảnh Siêu âm đầu dò âm đạo mô phỏng chuẩn y khoa -->
+                <div class="bg-slate-50 rounded-2xl border border-slate-200 p-4 space-y-4">
+                    <h3 class="font-extrabold text-slate-900 text-base sm:text-lg flex items-center gap-2">
+                        <span class="px-2.5 py-0.5 rounded bg-sky-600 text-white text-xs">6.2</span> Cận lâm sàng: Tiêu chuẩn vàng Siêu âm & Công thức máu
+                    </h3>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
+                        <div class="lg:col-span-6 space-y-3 text-sm text-slate-700">
+                            <div class="p-3.5 rounded-xl bg-white border border-slate-200">
+                                <div class="font-bold text-sky-800 mb-1"><i class="fa-solid fa-wave-square mr-1"></i> Siêu âm đường bụng (Transabdominal):</div>
+                                <p>Độ chính xác <span class="kw-blue">95 – 98%</span>, nhanh, không tia xạ. Tuy nhiên có <strong>5 – 7% dương tính/âm tính giả</strong> do bàng quang quá căng (ép đoạn dưới làm rau trông như bám thấp), cơn co tử cung hoặc rau bám mặt sau bị bóng lưng thai nhi che khuất.</p>
+                            </div>
+                            <div class="p-3.5 rounded-xl bg-white border border-emerald-300">
+                                <div class="font-bold text-emerald-800 mb-1"><i class="fa-solid fa-check-double mr-1"></i> Siêu âm đầu dò âm đạo (Transvaginal - TVUS):</div>
+                                <p>Có tính <span class="kw-mint">ưu việt vượt trội</span> vì đầu dò tiếp cận gần cổ tử cung, cho hình ảnh chi tiết mối liên quan giữa mép dưới bánh rau và lỗ trong CTC. <strong>An toàn</strong> khi đặt đầu dò nông ở túi cùng âm đạo (không đưa vào lỗ CTC).</p>
+                            </div>
+                            <div class="p-3 rounded-xl bg-white border border-slate-200">
+                                <strong>Xét nghiệm Công thức máu:</strong> Số lượng Hồng cầu (RBC), Hemoglobin (Hb) và Hematocrit (Hct) giảm tùy mức độ mất máu.
+                            </div>
+                        </div>
+
+                        <!-- Mô phỏng màn hình máy siêu âm Hình 3 trong giáo trình -->
+                        <div class="lg:col-span-6 us-screen rounded-2xl border-2 border-slate-700 p-3.5 text-white shadow-md">
+                            <div class="flex flex-wrap justify-between items-center text-[10px] sm:text-[11px] font-mono text-emerald-400 border-b border-slate-700 pb-1.5 mb-2">
+                                <span>EV9C4-5 | M8.0MHz | Endovag | General</span>
+                                <span>60dB S1, Gain: 1d</span>
+                            </div>
+                            <div class="relative rounded-xl overflow-hidden border border-slate-800 us-noise">
+                                <svg viewBox="0 0 380 185" class="w-full h-auto">
+                                    <!-- Quạt chùm tia siêu âm đầu dò âm đạo -->
+                                    <path d="M 190 10 L 35 155 A 210 210 0 0 0 345 155 Z" fill="#1e293b" opacity="0.85"/>
+                                    <!-- Vùng đầu dò tiếp xúc -->
+                                    <path d="M 165 25 Q 190 36, 215 25" fill="none" stroke="#94a3b8" stroke-width="4"/>
+                                    <!-- Ống cổ tử cung (Cervical canal) -->
+                                    <path d="M 170 42 L 220 92" stroke="#e2e8f0" stroke-width="5" stroke-linecap="round"/>
+                                    <path d="M 164 48 L 214 98 M 176 36 L 226 86" stroke="#64748b" stroke-width="4"/>
+                                    <!-- Đánh dấu Lỗ trong CTC (Internal Os) -->
+                                    <circle cx="220" cy="92" r="4" fill="#facc15"/>
+                                    <line x1="220" y1="92" x2="285" y2="62" stroke="#facc15" stroke-width="1.2" stroke-dasharray="2,2"/>
+                                    <text x="288" y="65" font-size="9" font-weight="bold" fill="#facc15">Lỗ trong CTC</text>
+                                    <!-- Bánh rau tăng âm đồng nhất che lấp qua lỗ trong CTC -->
+                                    <path d="M 125 110 C 165 82, 235 80, 285 112 C 260 145, 160 148, 125 110 Z" fill="#94a3b8" opacity="0.75" stroke="#cbd5e1" stroke-width="1.5"/>
+                                    <text x="205" y="122" text-anchor="middle" font-size="10" font-weight="bold" fill="#0f172a">BÁNH RAU (PLACENTA)</text>
+                                    <!-- Khoảng cách trùm qua lỗ trong -->
+                                    <line x1="220" y1="92" x2="258" y2="96" stroke="#fb7185" stroke-width="2"/>
+                                    <text x="255" y="86" font-size="8.5" font-weight="bold" fill="#fb7185">Che kín lỗ trong</text>
+                                    <!-- Thang đo độ sâu bên phải -->
+                                    <line x1="365" y1="20" x2="365" y2="165" stroke="#64748b" stroke-width="1"/>
+                                    <text x="352" y="30" font-size="8" fill="#94a3b8" font-family="monospace">1cm</text>
+                                    <text x="352" y="95" font-size="8" fill="#94a3b8" font-family="monospace">5cm</text>
+                                    <text x="352" y="160" font-size="8" fill="#94a3b8" font-family="monospace">9cm</text>
+                                </svg>
+                            </div>
+                            <div class="text-[11px] text-slate-300 mt-2 flex items-center justify-between">
+                                <span><strong>Hình 3:</strong> Siêu âm đầu dò âm đạo (Endovaginal) xác định RTĐ trung tâm.</span>
+                                <span class="text-amber-300 font-mono">Store in pc</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở rộng lâm sàng: Quy tắc Double Setup -->
+                <div class="clinical-pearl rounded-xl p-4">
+                    <div class="flex items-center gap-2 text-sky-900 font-extrabold text-sm mb-1">
+                        <i class="fa-solid fa-shield-halved text-sky-600"></i>
+                        <span>MỞ RỘNG LÂM SÀNG: Nguyên tắc "5 KHÔNG" & Quy tắc khám trong "Double Setup"</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        Trên lâm sàng sản khoa, đứng trước một thai phụ ra huyết âm đạo 3 tháng cuối <strong>chưa siêu âm loại trừ RTĐ</strong>: <strong>TUYỆT ĐỐI KHÔNG thăm âm đạo bằng tay</strong> (ngay cả bác sĩ có kinh nghiệm). Ngón tay đưa qua lỗ cổ tử cung có thể chọc rách trực tiếp các xoang mạch máu bánh rau gây xuất huyết sét đánh. Nếu buộc phải thăm âm đạo để quyết định đường đẻ (ở tuyến cơ sở không có siêu âm), phải thực hiện theo quy tắc <strong>"Double Setup" (Chuẩn bị kép)</strong>: khám ngay trên bàn mổ, đã truyền dịch, dự trù sẵn máu và kíp gây mê – phẫu thuật viên sẵn sàng mổ cấp cứu ngay lập tức nếu máu chảy ồ ạt.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 7. NGUY CƠ CỦA RAU TIỀN ĐẠO -->
+        <section id="phan-7" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-amber-50 to-rose-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-amber-600 text-white font-extrabold flex items-center justify-center shadow-sm">7</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">NGUY CƠ CỦA RAU TIỀN ĐẠO ĐỐI VỚI MẸ VÀ CON</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-2xl bg-rose-50 border border-rose-200 flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-rose-600 text-white flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-person-dress"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-rose-900 text-base mb-1">Đối với Người Mẹ</h3>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                Nguy cơ chủ yếu là <span class="kw-rose">chảy máu nặng đe dọa tính mạng</span> (choáng mất máu, rối loạn đông máu), băng huyết sau sổ rau do đoạn dưới co hồi kém, nguy cơ cắt tử cung cầm máu (đặc biệt khi kèm rau cài răng lược) và nhiễm khuẩn hậu sản.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="p-4 rounded-2xl bg-sky-50 border border-sky-200 flex items-start gap-3.5">
+                        <div class="w-11 h-11 rounded-xl bg-sky-600 text-white flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-baby"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-extrabold text-sky-900 text-base mb-1">Đối với Thai Nhi</h3>
+                            <p class="text-sm text-slate-700 leading-relaxed">
+                                <span class="kw-yellow">Non tháng</span> (do phải chấm dứt thai kỳ sớm để cứu mẹ), <span class="kw-blue">cân nặng lúc sinh thấp</span>, thiếu máu bào thai (nếu rách gai rau), suy thai cấp và <span class="kw-rose">tỷ lệ tử vong chu sinh cao</span>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 8. CHẨN ĐOÁN XÁC ĐỊNH & CHẨN ĐOÁN PHÂN BIỆT -->
+        <section id="phan-8" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-indigo-50 to-sky-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-indigo-700 text-white font-extrabold flex items-center justify-center shadow-sm">8</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">CHẨN ĐOÁN XÁC ĐỊNH & BẢNG CHẨN ĐOÁN PHÂN BIỆT</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-5">
+                <!-- 8.1 Chẩn đoán xác định -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="p-4 rounded-xl bg-slate-50 border border-slate-200">
+                        <span class="px-2.5 py-0.5 rounded bg-slate-200 text-slate-800 text-xs font-bold">8.1.1 Tuyến y tế cơ sở</span>
+                        <ul class="mt-2 text-sm text-slate-700 space-y-1.5 list-disc pl-4">
+                            <li>Ra huyết âm đạo trong <span class="kw-rose">3 tháng cuối</span> với tính chất đặc trưng (đỏ tươi, đột ngột, không đau bụng).</li>
+                            <li>Khám phát hiện <span class="kw-blue">ngôi bất thường</span> hoặc ngôi đầu cao lỏng.</li>
+                        </ul>
+                    </div>
+                    <div class="p-4 rounded-xl bg-sky-50 border border-sky-200">
+                        <span class="px-2.5 py-0.5 rounded bg-sky-200 text-sky-900 text-xs font-bold">8.1.2 Tuyến chuyên khoa</span>
+                        <ul class="mt-2 text-sm text-slate-700 space-y-1.5 list-disc pl-4">
+                            <li>Dựa vào triệu chứng lâm sàng + khám mỏ vịt loại trừ tổn thương cổ tử cung/âm đạo.</li>
+                            <li><strong>Cận lâm sàng quyết định:</strong> <span class="kw-mint">Siêu âm</span> (đặc biệt siêu âm đầu dò âm đạo) xác định chính xác vị trí bánh rau so với lỗ trong CTC.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 8.2 Bảng chẩn đoán phân biệt trực quan -->
+                <div>
+                    <h3 class="font-extrabold text-indigo-950 text-base mb-2.5 flex items-center gap-2">
+                        <span class="px-2 py-0.5 rounded bg-indigo-100 text-indigo-800 text-xs">8.2</span> Bảng Chẩn đoán phân biệt "Tam chứng chảy máu 3 tháng cuối"
+                    </h3>
+                    <div class="overflow-x-auto rounded-2xl border border-slate-200 shadow-xs">
+                        <table class="w-full text-left border-collapse text-sm">
+                            <thead>
+                                <tr class="bg-slate-800 text-white">
+                                    <th class="p-3.5 font-bold border-r border-slate-700 w-1/5">Tiêu chí</th>
+                                    <th class="p-3.5 font-bold border-r border-slate-700 bg-sky-900 w-4/15">RAU TIỀN ĐẠO</th>
+                                    <th class="p-3.5 font-bold border-r border-slate-700 bg-amber-900 w-4/15">RAU BONG NON</th>
+                                    <th class="p-3.5 font-bold bg-rose-900 w-4/15">VỠ TỬ CUNG</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200">
+                                <tr class="bg-white">
+                                    <td class="p-3 font-bold text-slate-800 bg-slate-50">Tính chất máu chảy</td>
+                                    <td class="p-3"><span class="kw-rose">Đỏ tươi</span>, có thể lẫn máu cục, tự cầm và tái phát nhiều lần.</td>
+                                    <td class="p-3"><span class="kw-yellow">Đỏ loãng, KHÔNG đông</span> (do tiêu sợi huyết).</td>
+                                    <td class="p-3"><span class="kw-rose">Đỏ tươi</span> (chảy ra ngoài ít nhưng chảy trong ổ bụng nhiều).</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-800 bg-slate-50">Đau bụng</td>
+                                    <td class="p-3"><span class="kw-mint">KHÔNG đau bụng</span> (khi chưa chuyển dạ).</td>
+                                    <td class="p-3">Đau bụng dữ dội, đột ngột, liên tục.</td>
+                                    <td class="p-3">Đau chói dữ dội lúc vỡ, sau đó dịu đi nhưng choáng nặng.</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-3 font-bold text-slate-800 bg-slate-50">Toàn trạng & Tiền sử</td>
+                                    <td class="p-3">Tương xứng lượng máu mất ra ngoài.</td>
+                                    <td class="p-3">Thường kèm <span class="kw-yellow">Tiền sản giật</span>; choáng nặng không tương xứng máu ra ngoài.</td>
+                                    <td class="p-3">Sẹo mổ đẻ cũ, chuyển dạ kéo dài; <span class="kw-rose">choáng rất nặng</span>.</td>
+                                </tr>
+                                <tr class="bg-slate-50/50">
+                                    <td class="p-3 font-bold text-slate-800 bg-slate-50">Khám Tử cung</td>
+                                    <td class="p-3">Tử cung mềm, ngôi bất thường / đầu cao lỏng.</td>
+                                    <td class="p-3"><span class="kw-rose">Tử cung co cứng như gỗ</span>, chiều cao TC tăng dần.</td>
+                                    <td class="p-3">Mất hình dạng TC; <span class="kw-yellow">sờ thấy phần thai dưới da bụng</span>, cạnh khối nhỏ là TC.</td>
+                                </tr>
+                                <tr class="bg-white">
+                                    <td class="p-3 font-bold text-slate-800 bg-slate-50">Tim thai</td>
+                                    <td class="p-3">Thường bình thường (chỉ suy khi mất máu nhiều).</td>
+                                    <td class="p-3"><span class="kw-rose">Khó nghe hoặc mất</span> rất sớm.</td>
+                                    <td class="p-3"><span class="kw-rose">Mất tim thai</span>.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 9. XỬ TRÍ -->
+        <section id="phan-9" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-emerald-50 to-teal-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-emerald-700 text-white font-extrabold flex items-center justify-center shadow-sm">9</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">PHÁC ĐỒ XỬ TRÍ RAU TIỀN ĐẠO</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5 space-y-6">
+                
+                <!-- Nguyên tắc vàng -->
+                <div class="p-4 rounded-2xl bg-rose-600 text-white flex flex-col sm:flex-row sm:items-center justify-between gap-3 shadow-sm">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-star-of-life text-2xl text-amber-300 shrink-0"></i>
+                        <div>
+                            <div class="text-xs uppercase font-bold tracking-wider text-rose-100">Nguyên tắc bất di bất dịch</div>
+                            <div class="text-base sm:text-lg font-extrabold">Tất cả bệnh nhân RTĐ đều phải nhập viện điều trị (dù có ra máu hay không). CỨU MẸ LÀ CHÍNH!</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sơ đồ lưu đồ xử trí trực quan (Flowchart SVG) -->
+                <div class="bg-slate-50 border border-slate-200 rounded-2xl p-4">
+                    <div class="text-xs font-bold uppercase tracking-wider text-slate-600 text-center mb-3">
+                        Sơ đồ thuật toán xử trí lâm sàng Rau Tiền Đạo
+                    </div>
+                    <svg viewBox="0 0 800 265" class="w-full h-auto bg-white rounded-xl border border-slate-200 p-2">
+                        <!-- Node gốc -->
+                        <rect x="275" y="10" width="250" height="36" rx="8" fill="#0f4c81"/>
+                        <text x="400" y="32" text-anchor="middle" font-size="12" font-weight="bold" fill="#fff">CHẨN ĐOÁN RAU TIỀN ĐẠO</text>
+
+                        <!-- Nhánh trái: Tuyến cơ sở -->
+                        <line x1="330" y1="46" x2="130" y2="80" stroke="#64748b" stroke-width="2"/>
+                        <rect x="20" y="80" width="220" height="75" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"/>
+                        <text x="130" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#92400e">TUYẾN Y TẾ CƠ SỞ</text>
+                        <text x="130" y="117" text-anchor="middle" font-size="9.5" fill="#334155">1. Thuốc giảm co tử cung</text>
+                        <text x="130" y="131" text-anchor="middle" font-size="9.5" fill="#334155">2. Hồi sức chống choáng (nếu cần)</text>
+                        <text x="130" y="145" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#be123c">3. Chuyển tuyến chuyên khoa NGAY</text>
+
+                        <!-- Nhánh giữa: Đang mang thai (Chưa chuyển dạ) -->
+                        <line x1="400" y1="46" x2="400" y2="80" stroke="#64748b" stroke-width="2"/>
+                        <rect x="275" y="80" width="250" height="55" rx="8" fill="#e0f2fe" stroke="#0284c7" stroke-width="1.5"/>
+                        <text x="400" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#075985">CHƯA CHUYỂN DẠ (Tuyến CK)</text>
+                        <text x="400" y="116" text-anchor="middle" font-size="9.5" fill="#334155">Nghỉ ngơi + Giảm co + Trưởng thành phổi</text>
+                        <text x="400" y="129" text-anchor="middle" font-size="9.5" fill="#334155">+ Kháng sinh β-lactam + Bồi phụ máu</text>
+
+                        <!-- Nhánh con từ Chưa chuyển dạ -->
+                        <line x1="340" y1="135" x2="270" y2="175" stroke="#0284c7" stroke-width="1.5"/>
+                        <rect x="170" y="175" width="185" height="75" rx="8" fill="#ffe4e6" stroke="#e11d48" stroke-width="1.5"/>
+                        <text x="262" y="193" text-anchor="middle" font-size="10" font-weight="bold" fill="#be123c">Chảy máu không cầm</text>
+                        <text x="262" y="208" text-anchor="middle" font-size="9.5" fill="#334155">→ MỔ LẤY THAI CẤP CỨU</text>
+                        <text x="262" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="#881337">(Không kể tuổi thai - Cứu mẹ)</text>
+
+                        <line x1="450" y1="135" x2="465" y2="175" stroke="#0284c7" stroke-width="1.5"/>
+                        <rect x="370" y="175" width="190" height="75" rx="8" fill="#d1fae5" stroke="#059669" stroke-width="1.5"/>
+                        <text x="465" y="193" text-anchor="middle" font-size="10" font-weight="bold" fill="#065f46">Giữ được đến đủ tháng</text>
+                        <text x="465" y="208" text-anchor="middle" font-size="9" fill="#334155">• Bám thấp/mép: Chờ CD tự nhiên</text>
+                        <text x="465" y="222" text-anchor="middle" font-size="9" font-weight="bold" fill="#be123c">• Bán TT / TT hoàn toàn:</text>
+                        <text x="465" y="235" text-anchor="middle" font-size="9" font-weight="bold" fill="#be123c">Chủ động mổ lấy thai</text>
+
+                        <!-- Nhánh phải: Khi chuyển dạ -->
+                        <line x1="470" y1="46" x2="670" y2="80" stroke="#64748b" stroke-width="2"/>
+                        <rect x="560" y="80" width="225" height="170" rx="8" fill="#fce7f3" stroke="#db2777" stroke-width="1.5"/>
+                        <text x="672" y="100" text-anchor="middle" font-size="11" font-weight="bold" fill="#9d174d">KHI CHUYỂN DẠ</text>
+                        <text x="672" y="120" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#be123c">1. Trung tâm & Bán trung tâm:</text>
+                        <text x="672" y="133" text-anchor="middle" font-size="9.5" fill="#1e293b">→ MỔ LẤY THAI NGAY</text>
+                        <text x="672" y="154" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#b45309">2. Bám mép:</text>
+                        <text x="672" y="167" text-anchor="middle" font-size="9" fill="#1e293b">• Máu nhiều → Mổ cấp cứu</text>
+                        <text x="672" y="180" text-anchor="middle" font-size="9" fill="#1e293b">• Máu ít + thuận lợi → Bấm ối,</text>
+                        <text x="672" y="192" text-anchor="middle" font-size="9" fill="#1e293b">xé màng ối phía không có rau</text>
+                        <text x="672" y="213" text-anchor="middle" font-size="9.5" font-weight="bold" fill="#047857">3. Bám thấp, bám bên:</text>
+                        <text x="672" y="226" text-anchor="middle" font-size="9" fill="#1e293b">• Máu ít → Theo dõi đẻ đường dưới</text>
+                        <text x="672" y="239" text-anchor="middle" font-size="9" fill="#1e293b">• Máu nhiều → Mổ lấy thai</text>
+                    </svg>
+                </div>
+
+                <!-- Chi tiết điều trị nội khoa & Kỹ thuật cầm máu phẫu thuật -->
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <!-- Điều trị nội khoa dưỡng thai -->
+                    <div class="p-4 rounded-2xl bg-sky-50/60 border border-sky-200 space-y-2.5">
+                        <h3 class="font-extrabold text-sky-900 text-base">9.2.1. Điều trị nội khoa dưỡng thai (Chưa chuyển dạ)</h3>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li><strong>Chế độ chăm sóc:</strong> Nằm nghỉ tại giường, <span class="kw-yellow">hạn chế vận động tối đa</span>, ăn dinh dưỡng tốt, chống táo bón (tránh rặn làm tăng áp lực ổ bụng).</li>
+                            <li><strong>Thuốc ức chế cơn co tử cung:</strong> <span class="kw-blue">Spasmaverin, No-spa, Salbutamol...</span> nhằm giảm cơn co, hạn chế bong rau và kéo dài tuổi thai.</li>
+                            <li><strong>Kích thích trưởng thành phổi thai nhi:</strong> Dùng <span class="kw-mint">Corticosteroid</span> khi có chỉ định (thai non tháng 24 – 34 tuần).</li>
+                            <li><strong>Kháng sinh:</strong> Thường dùng <span class="kw-blue">nhóm β-lactam</span> để chống nhiễm trùng ngược dòng qua vùng rau bong.</li>
+                            <li><strong>Cầm máu & Hồi sức:</strong> Thuốc cầm máu; bồi phụ khối lượng tuần hoàn bằng chế phẩm máu hoặc dung dịch cao phân tử nếu thiếu máu nặng.</li>
+                        </ul>
+                    </div>
+
+                    <!-- Kỹ thuật cầm máu khi mổ -->
+                    <div class="p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-2.5">
+                        <h3 class="font-extrabold text-amber-900 text-base">9.2.2. Kỹ thuật cầm máu diện rau bám khi mổ</h3>
+                        <p class="text-sm text-slate-700">Sau khi lấy thai và bóc rau, nếu vùng đoạn dưới vẫn chảy máu:</p>
+                        <ul class="text-sm text-slate-700 space-y-2">
+                            <li><strong>Bước 1:</strong> Khâu cầm máu trực tiếp diện rau bám bằng các <span class="kw-yellow">mũi chữ X</span>.</li>
+                            <li><strong>Bước 2 (Nếu bệnh nhân đủ con & vẫn chảy máu):</strong> Nên <span class="kw-rose">cắt tử cung bán phần thấp</span> để cứu tính mạng.</li>
+                            <li><strong>Bước 3 (Nếu bệnh nhân chưa đủ con, cần bảo tồn tử cung):</strong>
+                                <div class="mt-1 p-2.5 rounded-xl bg-white border border-amber-200 text-xs sm:text-sm space-y-1">
+                                    <div>• Thắt động mạch tử cung hoặc thắt <span class="kw-blue">động mạch hạ vị</span> (ĐM chậu trong), động mạch dây chằng tử cung - buồng trứng.</div>
+                                    <div>• Khâu ép tử cung kiểu <span class="kw-mint">mũi B-Lynch</span>.</div>
+                                    <div>• Chèn bóng (Bakri) hoặc chèn gạc vào buồng tử cung.</div>
+                                    <div class="text-rose-700 font-bold">→ Nếu thất bại vẫn phải cắt tử cung cầm máu.</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Hình thái nặng nhất: RTĐ - Rau cài răng lược -->
+                <div class="p-4 rounded-2xl bg-rose-50 border-2 border-rose-300 space-y-2">
+                    <div class="flex items-center gap-2 text-rose-900 font-extrabold text-base">
+                        <i class="fa-solid fa-radiation text-rose-600"></i>
+                        <span>Xử trí hình thái nặng nhất: RAU TIỀN ĐẠO – RAU CÀI RĂNG LƯỢC (Đặc biệt trên vết mổ đẻ cũ)</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-slate-800 pt-1">
+                        <div class="bg-white p-3 rounded-xl border border-rose-200">
+                            <strong>1. Chuyển tuyến & Chuẩn bị:</strong> Phải chuyển lên <span class="kw-rose">tuyến tỉnh hoặc tuyến trung ương</span>. Mổ lấy thai chủ động khi thai đủ tháng với kíp phẫu thuật viên + gây mê hồi sức giàu kinh nghiệm, dự trù <span class="kw-yellow">rất nhiều máu</span> và phương tiện hồi sức.
+                        </div>
+                        <div class="bg-white p-3 rounded-xl border border-rose-200">
+                            <strong>2. Kỹ thuật mổ đặc biệt:</strong> Chủ động <span class="kw-blue">mổ dọc thân tử cung phía trên chỗ rau bám</span> (hoặc ở đáy TC) để lấy thai, <strong>tránh rạch xuyên qua bánh rau</strong>. Sau lấy thai: <span class="kw-rose">KHÔNG cố bóc rau</span> mà chủ động cắt tử cung luôn để hạn chế tối đa lượng máu mất.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mở rộng lâm sàng -->
+                <div class="clinical-pearl rounded-xl p-4">
+                    <div class="flex items-center gap-2 text-sky-900 font-extrabold text-sm mb-1">
+                        <i class="fa-solid fa-pills text-sky-600"></i>
+                        <span>MỞ RỘNG LÂM SÀNG: Cơ chế thuốc giảm co & Liệu pháp Corticosteroid trưởng thành phổi</span>
+                    </div>
+                    <p class="text-sm text-slate-700 leading-relaxed">
+                        <strong>1. Thuốc giảm co:</strong> <em>Spasmaverin (Alverin)</em> và <em>No-spa (Drotaverin)</em> là thuốc chống co thắt cơ trơn hướng cơ; <em>Salbutamol</em> kích thích thụ thể β2-adrenergic làm giãn cơ trơn tử cung (lưu ý tác dụng phụ gây nhịp tim nhanh mẹ/thai). Mục tiêu là xóa bỏ các cơn co Braxton-Hicks ngăn đoạn dưới kéo giãn thêm.<br>
+                        <strong>2. Trưởng thành phổi:</strong> Dùng <em>Betamethasone</em> (12mg tiêm bắp x 2 liều cách 24h) hoặc <em>Dexamethasone</em> (6mg tiêm bắp x 4 liều cách 12h) kích thích tế bào phế nang type II sản xuất <strong>Surfactant</strong>, giảm nguy cơ suy hô hấp cấp (RDS), xuất huyết não thất ở trẻ sinh non nếu phải mổ cấp cứu.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 10. PHÒNG BỆNH -->
+        <section id="phan-10" class="w-full bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
+            <div onclick="toggleSection(this)" class="bg-gradient-to-r from-teal-50 to-emerald-50 px-5 py-3.5 border-b border-slate-200 flex items-center justify-between cursor-pointer select-none">
+                <div class="flex items-center gap-3">
+                    <span class="w-8 h-8 rounded-xl bg-teal-700 text-white font-extrabold flex items-center justify-center shadow-sm">10</span>
+                    <h2 class="text-lg sm:text-xl font-extrabold text-slate-900">DỰ PHÒNG RAU TIỀN ĐẠO</h2>
+                </div>
+                <i class="fa-solid fa-chevron-down text-slate-500 chevron-icon transition-transform"></i>
+            </div>
+            <div class="section-body p-5">
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                    <div class="p-4 rounded-xl bg-teal-50/70 border border-teal-200 flex items-start gap-3">
+                        <i class="fa-solid fa-sparkles text-teal-600 text-lg mt-0.5"></i>
+                        <p class="text-slate-800 font-medium">Làm tốt công tác <span class="kw-mint">vệ sinh kinh nguyệt</span> và <span class="kw-mint">vệ sinh thai nghén</span>.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-sky-50/70 border border-sky-200 flex items-start gap-3">
+                        <i class="fa-solid fa-shield-heart text-sky-600 text-lg mt-0.5"></i>
+                        <p class="text-slate-800 font-medium">Thực hiện <span class="kw-blue">sinh đẻ có kế hoạch</span>, khống chế nhiễm khuẩn chăm sóc sức khỏe sinh sản, <span class="kw-yellow">giảm tỷ lệ nạo hút thai</span>.</p>
+                    </div>
+                    <div class="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 flex items-start gap-3">
+                        <i class="fa-solid fa-hand-sparkles text-emerald-600 text-lg mt-0.5"></i>
+                        <p class="text-slate-800 font-medium">Làm tốt công tác <span class="kw-mint">vô khuẩn trong sản khoa</span> và hạn chế chỉ định mổ lấy thai không cần thiết.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TỔNG KẾT CHỐT Ý THI LÂM SÀNG -->
+        <section id="flash-summary" class="w-full bg-gradient-to-r from-amber-50 via-yellow-50 to-orange-50 rounded-2xl border-2 border-amber-300 p-5 shadow-sm">
+            <h2 class="text-base sm:text-lg font-extrabold text-amber-950 flex items-center gap-2 mb-3">
+                <i class="fa-solid fa-bolt text-amber-500"></i> BẢNG TÓM TẮT "CON SỐ VÀNG" ÔN THI LÂM SÀNG
+            </h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 text-center">
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-sky-700 font-mono">1 / 200</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">Tỷ lệ gặp RTĐ trên tổng số đẻ</div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-emerald-700 font-mono">&lt; 10 cm</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">Đo hồi cứu mép rau đến lỗ rách màng rau</div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-rose-600 font-mono">20 mm</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">Mốc siêu âm quyết định đường đẻ</div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-amber-700 font-mono">75%</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">RTĐ chảy máu ít (bám thấp, bên, mép)</div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-purple-700 font-mono">&lt; 2 cm</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">Chiều dày bánh rau RTĐ (mỏng, rộng)</div>
+                </div>
+                <div class="bg-white p-3 rounded-xl border border-amber-200 shadow-2xs">
+                    <div class="text-xl font-black text-rose-700 font-mono">2 lớp cơ</div>
+                    <div class="text-xs text-slate-600 font-semibold mt-1">Đoạn dưới chỉ có cơ vòng & cơ dọc</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER (FULL WIDTH) -->
+    <footer class="w-full bg-slate-900 text-slate-400 text-xs sm:text-sm py-5 px-4 sm:px-6 lg:px-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-2">
+        <div>
+            <strong class="text-white">Take-note Y Khoa: Rau Tiền Đạo (Placenta Previa)</strong> • Biên soạn theo Giáo trình Sản Khoa & Mở rộng Lâm sàng.
+        </div>
+        <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-sky-400 font-semibold transition cursor-pointer">
+            <i class="fa-solid fa-arrow-up mr-1"></i> Lên đầu trang
+        </button>
+    </footer>
+
+    <!-- JAVASCRIPT TƯƠNG TÁC HỌC TẬP -->
+    <script>
+        // 1. Thanh tiến độ đọc theo chiều dọc trang
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = height > 0 ? (winScroll / height) * 100 : 0;
+            document.getElementById('readingProgress').style.width = scrolled + '%';
+        });
+
+        // 2. Thu gọn / Mở rộng từng phần (Section)
+        function toggleSection(headerEl) {
+            const section = headerEl.closest('section');
+            if (section) {
+                section.classList.toggle('section-collapsed');
+            }
+        }
+
+        // 3. Thu gọn / Mở rộng toàn bộ các phần
+        let allCollapsed = false;
+        function toggleAllSections() {
+            const sections = document.querySelectorAll('main > section[id^="muc-tieu"], main > section[id^="phan-"]');
+            allCollapsed = !allCollapsed;
+            sections.forEach(sec => {
+                if (allCollapsed) {
+                    sec.classList.add('section-collapsed');
+                } else {
+                    sec.classList.remove('section-collapsed');
+                }
+            });
+            document.getElementById('collapseBtnText').textContent = allCollapsed ? 'Mở rộng tất cả' : 'Thu gọn tất cả';
+        }
+
+        // 4. Ẩn / Hiện các khung Mở rộng lâm sàng ngoài sách
+        let pearlsVisible = true;
+        function toggleAllPearls() {
+            const pearls = document.querySelectorAll('.clinical-pearl');
+            pearlsVisible = !pearlsVisible;
+            pearls.forEach(pearl => {
+                if (pearlsVisible) {
+                    pearl.classList.remove('hidden-pearl');
+                } else {
+                    pearl.classList.add('hidden-pearl');
+                }
+            });
+            document.getElementById('pearlBtnText').textContent = pearlsVisible ? 'Ẩn mở rộng lâm sàng' : 'Hiện mở rộng lâm sàng';
+        }
+    </script>
+</body>
+</html>
